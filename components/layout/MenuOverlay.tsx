@@ -87,7 +87,6 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                     className="fixed inset-0 z-[100] flex flex-col md:flex-row overflow-hidden"
                     dir="ltr"
                 >
-                    {/* Left Section - Info (Slides down with skew) */}
                     <motion.div
                         variants={sectionVariants}
                         className="relative w-full md:w-[50%] h-1/2 md:h-full overflow-hidden bg-black"
@@ -114,13 +113,11 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                         </motion.div>
                     </motion.div>
 
-                    {/* Right Section - Navigation (Slightly delayed slide down) */}
                     <motion.div
                         variants={sectionVariants}
                         transition={{ delay: 0.1 }}
                         className="relative flex-grow flex items-center justify-start p-10 md:pl-[300px] bg-[#F3EFE8]"
                     >
-                        {/* Close Button */}
                         <button
                             onClick={onClose}
                             className="absolute top-10 right-10 z-[110] p-2 hover:opacity-70 transition-opacity"
@@ -131,7 +128,6 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                             </svg>
                         </button>
 
-                        {/* Menu Items List */}
                         <motion.div
                             custom={2}
                             variants={contentVariants}
@@ -155,7 +151,6 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                                         {item.label}
                                     </a>
 
-                                    {/* Line Indicator Animation - Two dots with a line in between */}
                                     {hoveredId === item.id && (
                                         <motion.div
                                             layoutId="menuLine"
@@ -174,7 +169,6 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                         </motion.div>
                     </motion.div>
 
-                    {/* Centered Floating Image Section */}
                     <motion.div
                         variants={contentVariants}
                         custom={3}
