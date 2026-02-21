@@ -21,7 +21,7 @@ const Header = () => {
 
     return (
         <header className="fixed top-0 left-0 w-full py-8 z-50 flex items-center">
-       
+
             <motion.div
                 className="absolute inset-0 pointer-events-none"
                 style={{
@@ -32,7 +32,7 @@ const Header = () => {
                 }}
             />
 
-            <div className="w-full px-18 flex justify-between items-center relative z-10">
+            <div className="w-full px-6 md:px-10 lg:px-18 flex justify-between items-center relative z-10">
                 <motion.div
                     className="cursor-pointer hover:opacity-70 transition-opacity"
                     onClick={() => setIsMenuOpen(true)}

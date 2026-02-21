@@ -56,7 +56,11 @@ const Section1 = () => {
     const pinRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const ctx = gsap.context(() => {
+        const mm = gsap.matchMedia();
+
+        // ─── DESKTOP (≥ 1024px) ─────────────────────────────────────────
+        // ORIGINAL ANIMATION — DO NOT TOUCH
+        mm.add("(min-width: 1024px)", () => {
             if (!sectionRef.current || !pinRef.current) return;
 
             const targetRotations = [-4, 2, -4];
@@ -91,20 +95,92 @@ const Section1 = () => {
             });
 
             tl.to({}, { duration: 1 });
+        });
 
-        }, sectionRef);
+        // ─── MOBILE & TABLET (≤ 1023px) ───────────────────────────────────────────────
+        // Tilted horizontal card swap, right-to-left, sections pins AFTER fully visible
+        mm.add("(max-width: 1023px)", () => {
+            if (!sectionRef.current || !pinRef.current) return;
 
-        return () => ctx.revert();
+            const cards = gsap.utils.toArray<HTMLElement>(".result-card");
+
+            // Set all cards to absolute, tilted, and centered
+            gsap.set(cards, {
+                rotate: 2,
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                position: "absolute",
+                bottom: 0,
+                left: "50%",
+                xPercent: -50,
+            });
+
+            // Send cards 2 and 3 off-screen to the right (hidden)
+            gsap.set(cards.slice(1), { xPercent: 150, opacity: 0 });
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: pinRef.current,
+                    // "bottom bottom" = section is FULLY in view before pinning
+                    start: "bottom bottom",
+                    end: "+=3000",
+                    pin: pinRef.current,
+                    scrub: 1,
+                    anticipatePin: 1,
+                }
+            });
+
+            // Card 1 → Card 2
+            tl.to(cards[0], {
+                xPercent: -250,
+                opacity: 0,
+                rotate: -4,
+                duration: 2,
+                ease: "power2.inOut"
+            });
+            tl.to(cards[1], {
+                xPercent: -50,
+                opacity: 1,
+                rotate: 2,
+                duration: 2,
+                ease: "power2.inOut"
+            }, "<");
+
+            tl.to({}, { duration: 1 }); // pause on card 2
+
+            // Card 2 → Card 3
+            tl.to(cards[1], {
+                xPercent: -250,
+                opacity: 0,
+                rotate: -4,
+                duration: 2,
+                ease: "power2.inOut"
+            });
+            tl.to(cards[2], {
+                xPercent: -50,
+                opacity: 1,
+                rotate: 2,
+                duration: 2,
+                ease: "power2.inOut"
+            }, "<");
+
+            tl.to({}, { duration: 1 }); // pause on card 3
+        });
+
+        return () => mm.revert();
     }, []);
 
     return (
         <section ref={sectionRef} className="w-full bg-white relative z-20" dir="ltr">
+            {/* pinRef wraps the entire visible card + text layout */}
             <div ref={pinRef} className="w-full min-h-[110vh] flex flex-col items-center justify-center pt-24 px-4 md:px-10">
                 <div className="w-full max-w-[1440px] bg-[#10172F] min-h-[750px] md:min-h-[90vh] rounded-[25px] md:rounded-[50px] pt-16 md:pt-20 px-6 md:px-10 relative overflow-hidden flex flex-col items-center">
 
+                    {/* Section header */}
                     <div className="text-center mb-10 relative z-20 w-full mt-4 md:mt-8">
                         <div className="flex items-center justify-center gap-2 mb-3">
-                            <div className="w-2 h-2 bg-white rotate-45 mb-5 mr-4"/>
+                            <div className="w-2 h-2 bg-white rotate-45 mb-5 mr-4" />
                             <span className="text-white/80 font-inter text-xs tracking-wider uppercase mb-5">Our Service</span>
                         </div>
                         <h2 className="text-[36px] md:text-[52px] font-bold text-white mb-2 leading-tight">
@@ -115,18 +191,21 @@ const Section1 = () => {
                         </p>
                     </div>
 
+                    {/* Cards container */}
+                    {/* On mobile & tablet: relative + explicit height so absolute cards are visible */}
+                    {/* On desktop: flex row for the side-by-side stacked layout */}
                     <div
-                        className="flex flex-col md:flex-row items-end justify-center w-full max-w-7xl mx-auto relative z-10 mt-auto"
+                        className="flex flex-col lg:flex-row items-end justify-center w-full max-w-7xl mx-auto relative max-[480px]:mt-auto z-10 max-[1024px]:mt-20 min-h-[480px] lg:min-h-0"
                         style={{ perspective: "1200px" }}
                     >
                         {results.map((card, index) => (
                             <div
                                 key={card.id}
-                                className={`result-card bg-white rounded-t-[40px] rounded-b-none p-8 md:p-10 flex flex-col items-center text-center shadow-[0_-20px_50px_rgba(0,0,0,0.1)] relative 
-                                    ${index === 1 ? 'z-30' : 'z-20'} 
-                                    -mx-2 md:-mx-4
-                                    ${index === 0 ? '-ml-4 md:ml-14' : index === 2 ? 'ml-4 md:ml-14' : ''}
-                                    w-full md:w-[410px] shrink-0`}
+                                className={`result-card bg-white rounded-t-[40px] rounded-b-none p-8 md:p-10 flex flex-col items-center text-center shadow-[0_-20px_50px_rgba(0,0,0,0.1)] relative
+                                    ${index === 1 ? 'z-30' : 'z-20'}
+                                    lg:-mx-4
+                                    ${index === 0 ? 'lg:ml-14' : index === 2 ? 'lg:ml-14' : ''}
+                                    w-[94%] md:w-[410px] shrink-0`}
                                 style={{
                                     minHeight: '550px',
                                     marginBottom: '-150px',
