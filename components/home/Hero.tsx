@@ -30,7 +30,7 @@ const Hero = () => {
 
             <div className="w-full px-6 md:px-10 lg:px-24 relative z-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-10 md:gap-12 mt-64 md:mt-0">
                 <div className="w-full relative min-h-[auto] md:min-h-[300px]">
-                    <div className="md:absolute md:-bottom-20 left-0 w-full mb-10 md:mb-0">
+                    <div className="md:absolute  md:-bottom-20 left-0 w-full mb-10 md:mb-0">
                         <h1 className="text-[32px] md:text-[42px] lg:text-[52px] font-extrabold font-poppins leading-[1.1] md:leading-[1.0] mb-5 md:mb-8 text-[#1A1A1A]">
                             Creative Solutions<br />
                             That Elevate Brands

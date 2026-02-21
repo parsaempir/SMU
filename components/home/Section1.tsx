@@ -123,7 +123,7 @@ const Section1 = () => {
                 scrollTrigger: {
                     trigger: pinRef.current,
                     // "bottom bottom" = section is FULLY in view before pinning
-                    start: "bottom bottom",
+                    start: "bottom bottom-=6%",
                     end: "+=3000",
                     pin: pinRef.current,
                     scrub: 1,
@@ -175,7 +175,7 @@ const Section1 = () => {
         <section ref={sectionRef} className="w-full bg-white relative z-20" dir="ltr">
             {/* pinRef wraps the entire visible card + text layout */}
             <div ref={pinRef} className="w-full min-h-[110vh] flex flex-col items-center justify-center pt-24 px-4 md:px-10">
-                <div className="w-full max-w-[1440px] bg-[#10172F] min-h-[750px] md:min-h-[90vh] rounded-[25px] md:rounded-[50px] pt-16 md:pt-20 px-6 md:px-10 relative overflow-hidden flex flex-col items-center">
+                <div className="w-full max-w-[1440px] bg-[#10172F] min-h-[750px] max-[1024px]:min-h-[50vh]  rounded-[25px] md:rounded-[50px] pt-16 md:pt-20 px-6 md:px-10 relative overflow-hidden flex flex-col items-center">
 
                     {/* Section header */}
                     <div className="text-center mb-10 relative z-20 w-full mt-4 md:mt-8">
