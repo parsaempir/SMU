@@ -62,7 +62,6 @@ const Hero = () => {
                 </div>
             </div>
 
-            {/* Bottom Scroll Indicator Arrow specifically for mobile */}
             <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 md:hidden flex flex-col items-center">
                 <div className="flex flex-col items-center gap-3">
                     <Image src="/Flash.svg" alt="Arrow Up" width={40} height={20} className="opacity-40" />
