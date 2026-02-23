@@ -13,15 +13,16 @@ const Header = () => {
 
     const headerBgOpacity = useTransform(scrollY, [300, 500], [0, 1]);
 
+    /* OLD LOGIC FOR REVERSING COLORS:
     const iconFilter = useTransform(
         scrollY,
         [300, 500],
         ["brightness(0) invert(0)", "brightness(0) invert(1)"]
     );
-
+    */
     return (
         <header className="fixed top-0 left-0 w-full py-8 z-50 flex items-center">
-
+            {/* BACKGROUND COMMENTED OUT FOR TRANSPARENCY
             <motion.div
                 className="absolute inset-0 pointer-events-none"
                 style={{
@@ -31,12 +32,14 @@ const Header = () => {
                     WebkitBackdropFilter: 'invert(1) blur(10px)',
                 }}
             />
+            */}
 
             <div className="w-full px-6 md:px-10 lg:px-18 flex justify-between items-center relative z-10">
                 <motion.div
-                    className="cursor-pointer hover:opacity-70 transition-opacity"
+                    className="cursor-pointer hover:opacity-100 transition-opacity"
                     onClick={() => setIsMenuOpen(true)}
-                    style={{ filter: iconFilter }}
+                    /* OLD: style={{ filter: iconFilter }} */
+                    style={{ opacity: 0.7 }}
                 >
                     <Image
                         src="/Vector (14).svg"
@@ -48,10 +51,13 @@ const Header = () => {
 
                 <motion.div
                     className="flex-shrink-0"
+                    /* OLD:
                     style={{
                         opacity: logoOpacity,
                         filter: iconFilter
                     }}
+                    */
+                    style={{ opacity: 0.7 }}
                 >
                     <Image
                         src="/logo.svg"
