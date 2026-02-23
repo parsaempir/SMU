@@ -4,7 +4,7 @@ import Image from 'next/image';
 const Hero = () => {
     return (
         <section className="relative w-full min-h-screen md:min-h-[80vh] xl:min-h-[110vh] flex flex-col justify-end pb-24 xl:pb-32 bg-white overflow-x-hidden" dir="ltr">
-            <div className="absolute top-[-15%] md:top-[-15%] left-[-25%] md:left-[0%] w-[130%] md:w-[105%] 2xl:left-[0%] h-[50%] md:h-[70%] pointer-events-none z-0">
+            <div className="absolute top-[-15%] md:top-[-15%] left-[-25%] md:left-[2%] w-[130%] md:w-[105%] 2xl:left-[0%] h-[50%] md:h-[70%] pointer-events-none z-0">
                 <div className="relative w-full h-full transform rotate-[6deg] scale-110 md:rotate-[10deg] md:scale-100">
                     <video
                         autoPlay
