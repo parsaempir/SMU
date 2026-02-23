@@ -13,14 +13,26 @@ const projects = [
     {
         id: '01',
         title: 'Discovery',
-        image: '/Rectangle 41.png',
-        award: 'We dive deep into your business goals, target audience, and competitive landscape to build a solid foundation.'
+        image: '/Frame 38286.png',
+        award: 'We dive deep into your business, audience, and competitive landscape to uncover real opportunities and risks before anything is built.'
     },
     {
         id: '02',
-        title: 'Discovery',
-        image: '/Rectangle 43.png',
-        award: 'We dive deep into your business goals, target audience, and competitive landscape to build a solid foundation.'
+        title: 'Strategy',
+        image: '/Frame 38285.png',
+        award: 'We translate insights into a focused roadmap with clear priorities, positioning, and measurable goals aligned with your growth vision.'
+    },
+    {
+        id: '03',
+        title: 'Optimize',
+        image: '/Rectangle 41.png',
+        award: 'We translate insights into a focused roadmap with clear priorities, positioning, and measurable goals aligned with your growth vision.'
+    },
+    {
+        id: '04',
+        title: 'Launch',
+        image: '/Frame 38287.png',
+        award: 'We bring your vision to life with precision execution, ensuring a seamless and impactful launch.'
     }
 ];
 
@@ -123,11 +135,11 @@ const Section2 = () => {
     }, []);
 
     return (
-        <section className="w-full bg-black">
+        <section className="w-full bg-white">
             {projects.map((proj, idx) => (
                 <div
                     key={idx}
-                    className="project-wrapper relative w-full h-[200vh] flex items-center justify-center overflow-hidden"
+                    className="project-wrapper relative w-full h-[80vh] md:h-[90vh] lg:h-[100vh] flex items-center justify-center overflow-hidden"
                 >
                     <div className="animated-box relative w-full h-full overflow-hidden will-change-transform z-10 shadow-2xl flex items-center justify-center">
 

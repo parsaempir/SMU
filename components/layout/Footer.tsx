@@ -7,16 +7,14 @@ const Footer = () => {
         <footer className="w-full bg-white overflow-hidden" dir="ltr">
             <div className="w-full px-12 md:px-24">
 
-                {/* Top Section: Info + Nav */}
                 <div className="flex flex-col md:flex-row gap-16 md:gap-32 pt-16">
 
-                    {/* Left: Description + Button */}
                     <div className="flex flex-col items-center text-center md:items-start md:text-left md:w-fit px-16 md:px-0">
                         <p className="text-black text-[15px] leading-relaxed mb-8 max-w-[280px]">
                             We craft creative digital experiences<br className="hidden md:block" />
                             that help brands grow and stand out.
                         </p>
-                        <button className="inline-flex items-center gap-3 rounded-full bg-[#121212] px-4 py-3 md:px-6 md:py-4 text-[13px] md:text-[15px] font-semibold text-white transition-all duration-300 hover:bg-black group">
+                        <button className="inline-flex items-center gap-3 rounded-full bg-[#121212] px-4 py-3 md:px-6 md:py-4 text-[13px] md:text-[15px] font-semibold text-white transition-all duration-300 hover:bg-black group cursor-pointer">
                             Contact Our Team
                             <img
                                 src="/Icon.svg"
@@ -28,20 +26,17 @@ const Footer = () => {
                         </button>
                     </div>
 
-                    {/* Navigation Columns Container */}
                     <div className="flex flex-row md:gap-36 justify-evenly md:justify-start gap-12 w-full md:w-auto">
-                        {/* Middle: Page Links */}
                         <div className="min-w-fit">
                             <h4 className="text-[18px] md:text-[15px] font-[400] text-black mb-7 md:mb-5">Page Links</h4>
                             <ul className="space-y-4 md:space-y-3">
-                                <li><Link href="#" className="text-black text-[14px] hover:text-black transition-colors">Home</Link></li>
+                                <li><Link href="#" className="text-black text-[14px] hover:text-black transition-colors cursor-pointer">Home</Link></li>
                                 <li><Link href="#" className="text-black text-[14px] hover:text-black transition-colors">About Us</Link></li>
                                 <li><Link href="#" className="text-black text-[14px] hover:text-black transition-colors">Our Service</Link></li>
                                 <li><Link href="#" className="text-black text-[14px] hover:text-black transition-colors">Our Work</Link></li>
                             </ul>
                         </div>
 
-                        {/* Right: Fast Acces */}
                         <div className="min-w-fit">
                             <h4 className="text-[18px] md:text-[15px] font-[400] text-black mb-7 md:mb-5">Fast Acces</h4>
                             <ul className="space-y-4 md:space-y-3">
@@ -55,9 +50,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Bottom Section: Logo + Overlay Text */}
             <div className="relative mt-16">
-                {/* Logo stuck to page edge */}
                 <div className="mb-0 md:-mb-20 flex justify-start pointer-events-none">
                     <img
                         src="/Clip path group (1).svg"
@@ -68,13 +61,11 @@ const Footer = () => {
 
                 <div className="absolute inset-x-0 -top-2 h-full flex items-end pb-12 md:pb-24 pointer-events-none">
                     <div className="w-full px-6 md:px-24 hidden md:flex flex-col md:flex-row items-center pointer-events-auto">
-                        {/* Copyright - Aligned to the right of the SMU logo */}
                         <div className="md:w-[58%] hidden md:block"></div>
                         <p className="text-black text-[12px] md:w-fit text-left whitespace-nowrap mb-4 md:mb-0">
                             © 2026 — Copyright
                         </p>
 
-                        {/* Links - Pushed further to the right edge */}
                         <div className="md:flex-1 flex justify-end gap-8">
                             <Link href="#" className="text-black text-[12px] hover:text-black transition-colors underline underline-offset-4">
                                 Our Term

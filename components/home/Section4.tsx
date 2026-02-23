@@ -31,7 +31,7 @@ const AccordionItem = ({ item, isOpen, onClick }: { item: any; isOpen: boolean; 
         >
             <button
                 onClick={onClick}
-                className="w-full flex items-center justify-between p-7 md:p-9 text-left transition-colors duration-300 hover:bg-[#F4F4F4]/50"
+                className="w-full flex items-center justify-between p-7 md:p-9 text-left transition-colors duration-300 hover:bg-[#F4F4F4]/50 cursor-pointer"
             >
                 <span className="text-lg md:text-xl font-bold text-[#121212]">
                     {item.question}
@@ -72,15 +72,15 @@ const Section4 = () => {
 
     return (
         <section className="w-full py-20 md:py-24 lg:py-32 bg-white" dir="ltr">
-            <div className="container mx-auto px-4 md:px-6 max-w-[1400px]">
+            <div className="container mx-auto px-4 md:px-22 max-w-[1400px]">
                 <div className="flex flex-col gap-0 md:gap-0 lg:gap-2">
-                    <div className="flex flex-col lg:flex-row  lg:items-end xl:whitespace-nowrap gap-10 md:gap-16 lg:gap-24 mb-4">
-                        <div className="w-full lg:w-[38%] text-center lg:text-left flex flex-col items-center lg:items-start">
+                    <div className="flex flex-col lg:flex-row lg:items-start xl:whitespace-nowrap gap-10 md:gap-16 lg:gap-24 mb-4">
+                        <div className="w-full lg:w-[38%] text-center lg:text-left flex flex-col items-center lg:items-start lg:sticky lg:top-32 lg:self-start">
                             <div className="flex items-center gap-4  mb-6">
                                 <span className="w-1.5 h-1.5 bg-black rotate-45" />
                                 <span className="text-[14px] md:text-[16px] text-[#121212] font-medium uppercase tracking-wider">FAQ</span>
                             </div>
-                            <h2 className="text-3xl md:text-4xl lg:text-[40px] xl:text-6xl font-bold text-[#121212] mb-6 leading-[1.2] xl:leading-[1.1] tracking-tight">
+                            <h2 className="text-3xl md:text-4xl lg:text-[40px] xl:text-5xl font-bold text-[#121212] mb-6 leading-[1.2] xl:leading-[1.1] tracking-tight">
                                 Common Questions<br className="hidden md:block" /> Answered
                             </h2>
                             <p className="text-[#5D5D5D] text-[15px] md:text-[16px] lg:text-[14px] xl:text-lg leading-relaxed max-w-[280px] md:max-w-sm">
@@ -88,7 +88,7 @@ const Section4 = () => {
                             </p>
                         </div>
 
-                        <div className="w-full lg:w-[62%] flex flex-col justify-end">
+                        <div className="w-full lg:w-[62%] flex flex-col justify-start">
                             {faqItems.slice(0, 2).map((item, index) => (
                                 <AccordionItem
                                     key={index}

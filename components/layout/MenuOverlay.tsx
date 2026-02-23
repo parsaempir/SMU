@@ -87,11 +87,10 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                     className="fixed inset-0 z-[100] flex flex-col md:flex-row overflow-hidden"
                     dir="ltr"
                 >
-                    {/* Mobile & Tablet Menu Layout (< lg) */}
                     <div className="lg:hidden flex flex-col w-full h-full bg-[#F3EFE8] p-8 relative overflow-y-auto" dir="ltr">
                         <button
                             onClick={onClose}
-                            className="absolute top-8 right-8 z-[110] p-2 hover:opacity-70 transition-opacity"
+                            className="absolute top-8 right-8 z-[110] p-2 hover:opacity-70 transition-opacity cursor-pointer"
                             aria-label="Close menu"
                         >
                             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2.5">
@@ -108,7 +107,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                                         if (item.label !== 'Home') e.preventDefault();
                                         if (item.label === 'Home') onClose();
                                     }}
-                                    className={`text-[48px] md:text-[64px] font-bold font-poppins transition-colors duration-300 ${item.id === hoveredId ? 'text-black' : 'text-[#B5B5B5]'
+                                    className={`text-[48px] md:text-[64px] font-bold font-poppins transition-colors duration-300 cursor-pointer ${item.id === hoveredId ? 'text-black' : 'text-[#B5B5B5]'
                                         }`}
                                     onMouseEnter={() => setHoveredId(item.id)}
                                 >
@@ -127,7 +126,6 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                         </div>
                     </div>
 
-                    {/* Desktop Menu Layout (>= lg) */}
                     <div className="hidden lg:flex w-full h-full relative overflow-hidden" dir="ltr">
                         <motion.div
                             variants={sectionVariants}
@@ -162,7 +160,7 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                         >
                             <button
                                 onClick={onClose}
-                                className="absolute top-10 right-10 z-[110] p-2 hover:opacity-70 transition-opacity"
+                                className="absolute top-10 right-10 z-[110] p-2 hover:opacity-70 transition-opacity cursor-pointer"
                                 aria-label="Close menu"
                             >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="2">

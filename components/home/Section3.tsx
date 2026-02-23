@@ -70,7 +70,7 @@ const Section3 = () => {
 
                                 <div>
                                     <button className={`
-                                        inline-flex items-center gap-3 px-4 py-3 rounded-full text-[16px] font-[500] transition-all duration-300
+                                        inline-flex items-center gap-3 px-4 py-3 rounded-full text-[16px] font-[500] transition-all duration-300 cursor-pointer
                                         ${post.buttonStyle === 'dark'
                                             ? 'bg-[#121212] text-[#F5F5F5] hover:bg-black px-5'
                                             : 'border border-black text-black hover:bg-gray-50'}

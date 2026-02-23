@@ -3,8 +3,11 @@ import Image from 'next/image';
 
 const Hero = () => {
     return (
-        <section className="relative w-full min-h-screen md:min-h-[80vh] xl:min-h-[110vh] flex flex-col justify-end pb-24 xl:pb-32 bg-white overflow-x-hidden" dir="ltr">
-            <div className="absolute top-[-15%] md:top-[-8%] left-[-25%] md:left-[3%] w-[130%] md:w-[105%] 2xl:left-[0%] h-[50%] md:h-[70%] pointer-events-none z-0">
+        // OLD: min-h-screen md:min-h-[80vh] xl:min-h-[110vh] — section stretched with viewport height
+        // NEW: h-screen with max-h cap so it doesn't stretch endlessly
+        <section className="relative w-full h-screen max-h-[750px] md:max-h-[800px] xl:max-h-[900px] flex flex-col justify-end pb-20 xl:pb-24 bg-white overflow-x-hidden" dir="ltr">
+            {/* OLD: top-[-15%] md:top-[-8%] left-[-25%] md:left-[3%] w-[130%] md:w-[105%] 2xl:left-[0%] h-[50%] md:h-[70%] */}
+            <div className="absolute top-[-10%] md:top-[-5%] left-[-15%] md:left-[8%] w-[100%] md:w-[85%] 2xl:left-[5%] h-[40%] md:h-[55%] pointer-events-none z-0">
                 <div className="relative w-full h-full transform rotate-[6deg] scale-110 md:rotate-[6deg] md:scale-100">
                     <video
                         autoPlay
@@ -28,9 +31,11 @@ const Hero = () => {
                 </div>
             </div>
 
-            <div className="w-full px-6 md:px-10 lg:px-24 relative z-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-10 md:gap-12 mt-64 md:mt-0">
-                <div className="w-full relative min-h-[auto] md:min-h-[300px]">
-                    <div className="md:absolute  md:-bottom-20 left-0 w-full mb-10 md:mb-0">
+            {/* OLD: mt-64 md:mt-0, absolute bottom — content moved with height changes */}
+            {/* NEW: flex justify-end with max-h keeps content at bottom without stretching */}
+            <div className="w-full px-6 md:px-10 lg:px-24 relative z-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-10 md:gap-12">
+                <div className="w-full">
+                    <div className="w-full">
                         <h1 className="text-[32px] md:text-[42px] lg:text-[52px] font-extrabold font-poppins leading-[1.1] md:leading-[1.0] mb-5 md:mb-8 text-[#1A1A1A]">
                             Creative Solutions<br />
                             That Elevate Brands
@@ -39,7 +44,7 @@ const Hero = () => {
                             We craft bold visuals and smart digital experiences that make <br className="hidden md:block" /> brands stand out and stay memorable.
                         </p>
 
-                        <button className="group flex items-center gap-3 bg-[#24314c] md:bg-gradient-to-r md:from-[#3C5079] md:to-[#10172F] text-white px-7 md:px-10 py-3.5 md:py-5 rounded-full font-inter font-medium text-[14px] md:text-base hover:opacity-90 transition-all duration-300">
+                        <button className="group flex items-center gap-3 bg-[#24314c] md:bg-gradient-to-r md:from-[#3C5079] md:to-[#10172F] text-white px-7 md:px-10 py-3.5 md:py-5 rounded-full font-inter font-medium text-[14px] md:text-base hover:opacity-90 transition-all duration-300 cursor-pointer">
                             Get Template
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:hidden">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -50,7 +55,8 @@ const Hero = () => {
                     </div>
                 </div>
 
-                <div className="md:absolute md:-bottom-20 right-0 md:right-27 flex flex-row px-0 md:px-26 gap-10 md:gap-12 lg:gap-20 pb-4 mb-4 md:mb-0">
+                {/* OLD: md:-bottom-20, md:absolute */}
+                <div className="flex flex-row gap-10 md:gap-12 lg:gap-20 pb-4 mb-4 md:mb-0 flex-shrink-0">
                     <div className="flex flex-col gap-1">
                         <span className="text-[28px] md:text-[32px] font-[400] font-poppins text-[#1A1A1A] leading-tight">5K+</span>
                         <span className="text-[#5D5D5D] font-inter text-sm tracking-tight text-nowrap">Projects Finished</span>
@@ -71,6 +77,5 @@ const Hero = () => {
         </section>
     );
 };
-
 
 export default Hero;

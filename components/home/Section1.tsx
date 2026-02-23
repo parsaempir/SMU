@@ -72,7 +72,7 @@ const Section1 = () => {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    start: "bottom bottom",
+                    start: "bottom bottom+=11%",
                     end: "+=2500",
                     pin: pinRef.current,
                     scrub: 1,
@@ -117,7 +117,7 @@ const Section1 = () => {
                 scrollTrigger: {
                     trigger: pinRef.current,
                     start: "bottom bottom-=6%",
-                    end: "+=3000",
+                    end: "+=2500",
                     pin: pinRef.current,
                     scrub: 1,
                     anticipatePin: 1,
@@ -139,7 +139,7 @@ const Section1 = () => {
                 ease: "power2.inOut"
             }, "<");
 
-            tl.to({}, { duration: 1 }); 
+            tl.to({}, { duration: 1 });
 
             tl.to(cards[1], {
                 xPercent: -250,
@@ -156,7 +156,7 @@ const Section1 = () => {
                 ease: "power2.inOut"
             }, "<");
 
-            tl.to({}, { duration: 1 }); 
+            tl.to({}, { duration: 1 });
         });
 
         return () => mm.revert();
@@ -179,7 +179,7 @@ const Section1 = () => {
                         </p>
                     </div>
 
-                
+
                     <div
                         className="flex flex-col lg:flex-row items-end justify-center w-full max-w-7xl mx-auto relative max-[480px]:mt-auto z-10 max-[1024px]:mt-20 min-h-[480px] lg:min-h-0"
                         style={{ perspective: "1200px" }}
@@ -215,7 +215,7 @@ const Section1 = () => {
                                     ))}
                                 </div>
 
-                                <button className={`w-full py-4 rounded-full flex items-center justify-center gap-2 group transition-all duration-300 ${card.buttonBg} ${card.buttonText} ${card.buttonBorder} hover:opacity-90 mt-auto`}>
+                                <button className={`w-full py-4 rounded-full flex items-center justify-center gap-2 group transition-all duration-300 ${card.buttonBg} ${card.buttonText} ${card.buttonBorder} hover:opacity-90 mt-auto cursor-pointer`}>
                                     <span className="font-inter font-semibold text-sm">Learn More</span>
                                     <svg
                                         width="22"
