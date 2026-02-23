@@ -9,7 +9,8 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const { scrollY } = useScroll();
 
-    const logoOpacity = useTransform(scrollY, [300, 600], [0, 1]);
+    /* OLD: const logoOpacity = useTransform(scrollY, [300, 600], [0, 1]); */
+    const logoOpacity = useTransform(scrollY, [300, 600], [0, 0.7]);
 
     const headerBgOpacity = useTransform(scrollY, [300, 500], [0, 1]);
 
@@ -51,13 +52,8 @@ const Header = () => {
 
                 <motion.div
                     className="flex-shrink-0"
-                    /* OLD:
-                    style={{
-                        opacity: logoOpacity,
-                        filter: iconFilter
-                    }}
-                    */
-                    style={{ opacity: 0.7 }}
+                    /* OLD: style={{ opacity: 0.7 }} */
+                    style={{ opacity: logoOpacity }}
                 >
                     <Image
                         src="/logo.svg"
