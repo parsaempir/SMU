@@ -12,24 +12,37 @@ if (typeof window !== 'undefined') {
 const projects = [
     {
         id: '01',
-        title: 'LAMY DESIGN',
-        subtitle: 'CREATIVE WORK',
+        title: 'Discovery',
         image: '/Rectangle 41.png',
-        award: '@ GDWEB WINNER PRIZE'
+        award: 'We dive deep into your business goals, target audience, and competitive landscape to build a solid foundation.'
     },
     {
         id: '02',
-        title: 'CALIVERSE',
-        subtitle: 'GRAND PRIZE',
+        title: 'Discovery',
         image: '/Rectangle 43.png',
-        award: '@ GDWEB GRAND PRIZE'
+        award: 'We dive deep into your business goals, target audience, and competitive landscape to build a solid foundation.'
     }
 ];
 
 const Section2 = () => {
     useEffect(() => {
-        const ctx = gsap.context(() => {
+        const mm = gsap.matchMedia();
+
+        mm.add({
+            // Desktop
+            isDesktop: "(min-width: 1024px)",
+            // Tablet
+            isTablet: "(min-width: 640px) and (max-width: 1023px)",
+            // Mobile
+            isMobile: "(max-width: 639px)"
+        }, (context: any) => {
+            const { isDesktop, isTablet, isMobile } = context.conditions;
             const wrappers = gsap.utils.toArray('.project-wrapper');
+
+            // Responsive Params
+            const rotationVal = isMobile ? 4 : (isTablet ? 6 : 8);
+            const scaleVal = isMobile ? 0.7 : (isTablet ? 0.65 : 0.55);
+            const radiusVal = isMobile ? "40px" : "60px";
 
             wrappers.forEach((wrapper: any) => {
                 const box = wrapper.querySelector('.animated-box');
@@ -37,14 +50,14 @@ const Section2 = () => {
                 const content = wrapper.querySelector('.project-content');
 
                 gsap.set(box, {
-                    rotation: 8,
-                    scale: 0.55,
+                    rotation: rotationVal,
+                    scale: scaleVal,
                     opacity: 1,
-                    borderRadius: "60px",
+                    borderRadius: radiusVal,
                     transformOrigin: "center center"
                 });
 
-                gsap.set(img, { scale: 1.6, rotation: -8 });
+                gsap.set(img, { scale: 1.6, rotation: -rotationVal });
 
                 const tl = gsap.timeline({
                     scrollTrigger: {
@@ -84,16 +97,16 @@ const Section2 = () => {
                     })
 
                     .to(box, {
-                        rotation: -8,
-                        scale: 0.55,
+                        rotation: -rotationVal,
+                        scale: scaleVal,
                         scaleX: 1,
                         scaleY: 1,
-                        borderRadius: "60px",
+                        borderRadius: radiusVal,
                         ease: "power1.inOut",
                         duration: 2.0
                     })
                     .to(img, {
-                        rotation: 8,
+                        rotation: rotationVal,
                         scale: 1.6,
                         ease: "power1.inOut",
                         duration: 2.0
@@ -106,7 +119,7 @@ const Section2 = () => {
             });
         });
 
-        return () => ctx.revert();
+        return () => mm.revert();
     }, []);
 
     return (
@@ -131,7 +144,7 @@ const Section2 = () => {
 
                         <div className="project-content opacity-0 translate-y-32 relative z-20 w-full h-full flex flex-col items-center justify-center text-center px-6">
                             <span className="text-white/50 font-mono tracking-widest text-[10px] mb-4">
-                                {proj.id} / {proj.subtitle}
+                                {proj.id}
                             </span>
                             <h2 className="text-white font-bold text-5xl md:text-8xl lg:text-[100px] tracking-tighter leading-none mb-6">
                                 {proj.title}
