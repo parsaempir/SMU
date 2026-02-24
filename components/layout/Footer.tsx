@@ -30,10 +30,10 @@ const Footer = () => {
                         <div className="min-w-fit">
                             <h4 className="text-[18px] md:text-[15px] font-[400] text-black mb-7 md:mb-5">Page Links</h4>
                             <ul className="space-y-4 md:space-y-3">
-                                <li><Link href="#" className="text-black text-[14px] hover:text-black transition-colors cursor-pointer">Home</Link></li>
-                                <li><Link href="#" className="text-black text-[14px] hover:text-black transition-colors">About Us</Link></li>
-                                <li><Link href="#" className="text-black text-[14px] hover:text-black transition-colors">Our Service</Link></li>
-                                <li><Link href="#" className="text-black text-[14px] hover:text-black transition-colors">Our Work</Link></li>
+                                <li><Link href="/" className="text-black text-[14px] hover:text-black transition-colors cursor-pointer">Home</Link></li>
+                                <li><Link href="/about" className="text-black text-[14px] hover:text-black transition-colors">About Us</Link></li>
+                                <li><Link href="/services" className="text-black text-[14px] hover:text-black transition-colors">Our Service</Link></li>
+                                <li><Link href="/work" className="text-black text-[14px] hover:text-black transition-colors">Our Work</Link></li>
                             </ul>
                         </div>
 

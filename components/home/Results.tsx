@@ -51,7 +51,7 @@ const results = [
     }
 ];
 
-const Section1 = () => {
+const Results = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
     const pinRef = useRef<HTMLDivElement>(null);
 
@@ -244,4 +244,4 @@ const Section1 = () => {
     );
 };
 
-export default Section1;
+export default Results;

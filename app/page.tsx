@@ -1,10 +1,10 @@
 import Header from '@/components/layout/Header';
 import Hero from '@/components/home/Hero';
-import Section1 from '@/components/home/Section1';
-import Section2 from '@/components/home/Section2';
-import Section3 from '@/components/home/Section3';
-import Section4 from '@/components/home/Section4';
-import Section5 from '@/components/home/Section5';
+import Results from '@/components/home/Results';
+import Process from '@/components/home/Process';
+import Blog from '@/components/home/Blog';
+import FAQ from '@/components/home/FAQ';
+import CTA from '@/components/home/CTA';
 import Footer from '@/components/layout/Footer';
 
 export default function Home() {
@@ -13,11 +13,11 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <Hero />
-        <Section1 />
-        <Section2 />
-        <Section3 />
-        <Section4 />
-        <Section5 />
+        <Results />
+        <Process />
+        <Blog />
+        <FAQ />
+        <CTA />
       </main>
       <Footer />
     </div>

@@ -25,7 +25,7 @@ const blogPosts = [
     }
 ];
 
-const Section3 = () => {
+const Blog = () => {
     return (
         <section className="w-full py-24 bg-white" dir="ltr">
             <div className="container mx-auto px-6 max-w-7xl">
@@ -94,4 +94,4 @@ const Section3 = () => {
     );
 };
 
-export default Section3;
+export default Blog;

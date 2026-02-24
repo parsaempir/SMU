@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-const Section5 = () => {
+const CTA = () => {
     return (
         <section className="w-full bg-white py-16 md:py-24" dir="ltr">
             <div className="container mx-auto px-4 md:px-6 max-w-[1400px]">
@@ -62,4 +62,4 @@ const Section5 = () => {
     );
 };
 
-export default Section5;
+export default CTA;

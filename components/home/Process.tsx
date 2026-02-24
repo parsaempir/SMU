@@ -36,7 +36,7 @@ const projects = [
     }
 ];
 
-const Section2 = () => {
+const Process = () => {
     useEffect(() => {
         const mm = gsap.matchMedia();
 
@@ -173,4 +173,4 @@ const Section2 = () => {
     );
 };
 
-export default Section2;
+export default Process;

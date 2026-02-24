@@ -67,7 +67,7 @@ const AccordionItem = ({ item, isOpen, onClick }: { item: any; isOpen: boolean; 
     );
 };
 
-const Section4 = () => {
+const FAQ = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
@@ -116,4 +116,4 @@ const Section4 = () => {
     );
 };
 
-export default Section4;
+export default FAQ;

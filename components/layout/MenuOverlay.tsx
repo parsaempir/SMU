@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface MenuOverlayProps {
     isOpen: boolean;
@@ -11,9 +12,9 @@ interface MenuOverlayProps {
 
 const menuItems = [
     { id: 'home', label: 'Home', href: '/', image: '/Rectangle 41.png' },
-    { id: 'services', label: 'Services', href: '#', image: '/Rectangle 43.png' },
-    { id: 'about', label: 'About', href: '#', image: '/Rectangle 41.png' },
-    { id: 'contacts', label: 'Contacts', href: '#', image: '/Rectangle 43.png' },
+    { id: 'services', label: 'Services', href: '/services', image: '/Rectangle 43.png' },
+    { id: 'about', label: 'About', href: '/about', image: '/Rectangle 41.png' },
+    { id: 'contacts', label: 'Contacts', href: '/contacts', image: '/Rectangle 43.png' },
 ];
 
 const overlayVariants: Variants = {
@@ -100,19 +101,16 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
 
                         <div className="flex-grow flex flex-col items-center justify-center gap-6 mt-16 mb-12">
                             {menuItems.map((item) => (
-                                <a
+                                <Link
                                     key={item.id}
                                     href={item.href}
-                                    onClick={(e) => {
-                                        if (item.label !== 'Home') e.preventDefault();
-                                        if (item.label === 'Home') onClose();
-                                    }}
+                                    onClick={onClose}
                                     className={`text-[48px] md:text-[64px] font-bold font-poppins transition-colors duration-300 cursor-pointer ${item.id === hoveredId ? 'text-black' : 'text-[#B5B5B5]'
                                         }`}
                                     onMouseEnter={() => setHoveredId(item.id)}
                                 >
                                     {item.label}
-                                </a>
+                                </Link>
                             ))}
                         </div>
 
@@ -179,17 +177,14 @@ const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => {
                                         className="relative group"
                                         onMouseEnter={() => handleHover(item.id, item.image)}
                                     >
-                                        <a
+                                        <Link
                                             href={item.href}
-                                            onClick={(e) => {
-                                                if (item.label !== 'Home') e.preventDefault();
-                                                if (item.label === 'Home') onClose();
-                                            }}
+                                            onClick={onClose}
                                             className={`text-[55px] leading-tight font-extrabold font-poppins transition-colors duration-300 ${hoveredId === item.id ? 'text-black' : 'text-gray-300'
                                                 }`}
                                         >
                                             {item.label}
-                                        </a>
+                                        </Link>
 
                                         {hoveredId === item.id && (
                                             <motion.div
