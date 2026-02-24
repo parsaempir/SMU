@@ -11,7 +11,7 @@ import Section5 from '@/components/services/Section5';
 
 export default function ServicesPage() {
     return (
-        <div className="flex flex-col min-h-screen bg-white" dir="rtl">
+        <div className="flex flex-col min-h-screen bg-white" dir='rtl'>
             <Header />
             <main className="flex-grow">
                 <ServicesHero />
