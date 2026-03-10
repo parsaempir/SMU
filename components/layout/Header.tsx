@@ -37,22 +37,7 @@ const Header = () => {
 
             <div className="w-full px-6 md:px-10 lg:px-18 flex justify-between items-center relative z-10">
                 <motion.div
-                    className="cursor-pointer hover:opacity-100 transition-opacity"
-                    onClick={() => setIsMenuOpen(true)}
-                    /* OLD: style={{ filter: iconFilter }} */
-                    style={{ opacity: 0.7 }}
-                >
-                    <Image
-                        src="/Vector (14).svg"
-                        alt="Menu"
-                        width={37}
-                        height={16}
-                    />
-                </motion.div>
-
-                <motion.div
                     className="flex-shrink-0"
-                    /* OLD: style={{ opacity: 0.7 }} */
                     style={{ opacity: logoOpacity }}
                 >
                     <Image
@@ -61,6 +46,19 @@ const Header = () => {
                         width={90}
                         height={40}
                         priority
+                    />
+                </motion.div>
+
+                <motion.div
+                    className="cursor-pointer hover:opacity-100 transition-opacity"
+                    onClick={() => setIsMenuOpen(true)}
+                    style={{ opacity: 0.7 }}
+                >
+                    <Image
+                        src="/Vector (14).svg"
+                        alt="Menu"
+                        width={37}
+                        height={16}
                     />
                 </motion.div>
             </div>

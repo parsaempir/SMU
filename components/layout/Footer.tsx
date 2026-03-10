@@ -5,16 +5,16 @@ import Link from 'next/link';
 const Footer = () => {
     return (
         <footer className="w-full bg-white overflow-hidden" dir="ltr">
-            <div className="w-full px-12 md:px-24">
+            <div className="w-full px-5 sm:px-12 md:px-24">
 
                 <div className="flex flex-col md:flex-row gap-16 md:gap-32 pt-16">
 
-                    <div className="flex flex-col items-center text-center md:items-start md:text-left md:w-fit px-16 md:px-0">
-                        <p className="text-black text-[15px] leading-relaxed mb-8 max-w-[280px]">
+                    <div className="flex flex-col items-center text-center md:items-start md:text-left md:w-fit md:px-0">
+                        <p className="text-black text-[15px] leading-relaxed mb-8 w-full max-w-[280px]">
                             We craft creative digital experiences<br className="hidden md:block" />
                             that help brands grow and stand out.
                         </p>
-                        <button className="inline-flex items-center gap-3 rounded-full bg-[#121212] px-4 py-3 md:px-6 md:py-4 text-[13px] md:text-[15px] font-semibold text-white transition-all duration-300 hover:bg-black group cursor-pointer">
+                        <button className="inline-flex w-full sm:w-auto justify-center items-center gap-3 rounded-full bg-[#121212] px-5 py-3 md:px-6 md:py-4 text-[13px] md:text-[15px] font-semibold text-white transition-all duration-300 hover:bg-black group cursor-pointer">
                             Contact Our Team
                             <img
                                 src="/Icon.svg"
@@ -60,13 +60,13 @@ const Footer = () => {
                 </div>
 
                 <div className="absolute inset-x-0 -top-2 h-full flex items-end pb-12 md:pb-24 pointer-events-none">
-                    <div className="w-full px-6 md:px-24 hidden md:flex flex-col md:flex-row items-center pointer-events-auto">
+                    <div className="w-full px-6 md:px-24 flex flex-col md:flex-row items-center pointer-events-auto">
                         <div className="md:w-[58%] hidden md:block"></div>
-                        <p className="text-black text-[12px] md:w-fit text-left whitespace-nowrap mb-4 md:mb-0">
+                        <p className="text-black text-[12px] md:w-fit text-center md:text-left whitespace-nowrap mb-3 md:mb-0">
                             © 2026 — Copyright
                         </p>
 
-                        <div className="md:flex-1 flex justify-end gap-8">
+                        <div className="md:flex-1 flex justify-center md:justify-end gap-8">
                             <Link href="#" className="text-black text-[12px] hover:text-black transition-colors underline underline-offset-4">
                                 Our Term
                             </Link>
